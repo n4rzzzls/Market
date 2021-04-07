@@ -9,16 +9,31 @@ namespace Market
 {
     class Storage
     {
-        string[] name;
-        double[] price; = { 10.14, 11.11, 12.77, 13.34, 14.89, 15.28, 16.61 };
-        double[] quantity; = { 20, 22, 24, 26, 28, 30, 32 };
-
-        public Storage()
+        public List<Good> goods = new List<Good>();
+        
+        public Storage(MarketGoods.GoodsDataTable dt, MarketGoods.GoodsRow dr)
         {
-            name = { "Banana", "Apple", "Tomato", "Cherry", "Watermelon", "Cucumber", "Merry" };
+            goods.Add(new Good("Banana", 10.14, 20));
+            goods.Add(new Good("Apple", 11.11, 22));
+            goods.Add(new Good("Tomato", 12.77, 24));
+            goods.Add(new Good("Cherry", 13.34, 26));
+            goods.Add(new Good("Watermelon", 14.89, 28));
+            goods.Add(new Good("Cucumber", 15.28, 30));
+            goods.Add(new Good("Merry", 16.61, 32));
+
+            foreach (var item in goods)
+            {
+
+                dr = dt.NewGoodsRow();
+                dr["Name"] = item.Name;
+                dr["Price"] = item.Price;
+                dr["Quantity"] = item.Quantity;
+                dt.Rows.Add(dr);
+
+            }
         }
 
-        public void GetGoods(MarketGoods.GoodsDataTable dt)
+    public void GetGoods(MarketGoods.GoodsDataTable dt)
         {
             Console.WriteLine("ID\tName\t\tPrice\tQuantity\n--\t----\t\t-----\t--------");
             foreach (DataRow r in dt.Rows)
