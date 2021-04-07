@@ -11,24 +11,23 @@ namespace Market
 
             MarketGoods marketGoods = new MarketGoods();
             MarketGoods.GoodsDataTable dt = new MarketGoods.GoodsDataTable();
+            MarketGoods.GoodsRow dr;
+            Storage storage = new Storage();
 
-            MarketGoods.GoodsRow dr = dt.NewGoodsRow();
-            dr["Name"] = "Banana";
-            dr["Price"] = 10;
-            dr["Quantity"] = 100;
+            string[] name = { "Banana", "Apple", "Tomato", "Cherry", "Watermelon", "Cucumber", "Merry" };
+            double[] price = { 10.14, 11.11, 12.77, 13.34, 14.89, 15.28, 16.61 };
+            double[] quantity = { 20, 22, 24, 26, 28, 30, 32 };
 
-            MarketGoods.GoodsRow dr1 = dt.NewGoodsRow();
-            dr1["Name"] = "Apple";
-            dr1["Price"] = 12;
-            dr1["Quantity"] = 50;
-
-            dt.Rows.Add(dr);
-            dt.Rows.Add(dr1);
-            
-            foreach (DataRow r in dt.Rows)
+            for (int i = 0; i < name.Length; i++)
             {
-                Console.WriteLine("Name = {0}\tPrice = {1}\tQuantity = {2}", r["Name"], r["Price"], r["Quantity"]);
+                dr = dt.NewGoodsRow();
+                dr["Name"] = name[i];
+                dr["Price"] = price[i];
+                dr["Quantity"] = quantity[i];
+                dt.Rows.Add(dr);
             }
+
+            storage.GetGoods(dt);
             Console.ReadKey();
         }
     }
