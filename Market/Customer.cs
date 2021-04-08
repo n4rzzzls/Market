@@ -8,7 +8,12 @@ namespace Market
 {
     class Customer
     {
+
+        // Field
         private Balance balance;
+        private Cart cart;
+
+        // Property
         public Balance Balance
         {
             get { return balance; }
@@ -17,20 +22,22 @@ namespace Market
         // Constructor
         public Customer()
         {
-             balance = new Balance();
-
+            balance = new Balance();
+            cart = new Cart();
         }
 
+        // Method.
         public void Purchase()
         {
 
         }
 
-        public void SelectGood(string name, int quantity, Storage storage)
+        // Method.
+        public void SelectGood(Good good, Storage storage, int quantity)
         {
-            //storage.goods
 
-
+            storage.TakeGoodFromStorage(good, storage, quantity);
+            cart.AddGood(good);
         }
 
     }
