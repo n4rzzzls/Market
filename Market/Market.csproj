@@ -48,33 +48,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Balance.cs" />
     <Compile Include="Good.cs" />
     <Compile Include="Storage.cs" />
     <Compile Include="Customer.cs" />
-    <Compile Include="MarketGoods.cs">
-      <DependentUpon>MarketGoods.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="MarketGoods.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MarketGoods.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="MarketGoods.xsc">
-      <DependentUpon>MarketGoods.xsd</DependentUpon>
-    </None>
-    <None Include="MarketGoods.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>MarketGoods.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="MarketGoods.xss">
-      <DependentUpon>MarketGoods.xsd</DependentUpon>
-    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
