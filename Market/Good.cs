@@ -8,11 +8,14 @@ namespace Market
 {
     class Good
     {
+
+        // Fields
         private int id;
         private string name;
         private double price;
-        private double quantity;
+        private int quantity;
 
+        // Properties
         public int Id
         {
             set { id = value; }
@@ -31,14 +34,14 @@ namespace Market
             set { price = value; }
         }
 
-        public double Quantity
+        public int Quantity
         {
             get { return quantity; }
             set { quantity = value; }
         }
 
-
-        public Good(int id, string name, double price, double quantity)
+        // Constructor
+        public Good(int id, string name, double price, int quantity)
         {
             Id = id;
             Name = name;

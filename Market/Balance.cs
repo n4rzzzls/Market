@@ -15,7 +15,7 @@ namespace Market
         private double balance_cash;
         private double balance_card;
 
-
+        // Properties
         public double Balance_cash
         {
             set { balance_cash = value; }
