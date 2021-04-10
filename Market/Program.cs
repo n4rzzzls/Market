@@ -10,14 +10,21 @@ namespace Market
         {
 
             // Variables
-            object pressed_key;
+            UserInput userInput = new UserInput();
+            ConsoleKeyInfo pressed_key = new ConsoleKeyInfo();
+            int pressed_key_int = 0;
             Customer customer;
             Storage storage = new Storage();
 
 
             Console.WriteLine("1.Enter Marker.");
-            pressed_key = Console.ReadKey();
-            // TO DO
+
+            while (!userInput.PressedKeyIsDigitValidation())
+            {
+                break;
+            }
+
+            Console.WriteLine(pressed_key_int);
 
             customer = new Customer();
 
@@ -30,7 +37,7 @@ namespace Market
             // User input. Verifies that entered variable is int type.
             while (true)
             {
-                pressed_key = Console.Read();
+                pressed_key_int = Console.Read();
                 if (pressed_key.GetType() == typeof(int))
                 {
                     break;
@@ -43,7 +50,7 @@ namespace Market
 
 
             // Switch/case
-            switch (pressed_key)
+            switch (pressed_key_int)
             {
                 case 1:
                     storage.DisplayGoods();
