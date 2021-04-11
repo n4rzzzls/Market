@@ -8,58 +8,51 @@ namespace Market
 {
     class UserInput
     {
-
-        private ConsoleKeyInfo pressed_key;
-        private int pressed_key_int = 0;
-        
-
-        public bool PressedKeyIsDigitValidation()
+        // Checks that pressed key is digit
+        public bool PressedKeyIsDigitValidation(ConsoleKeyInfo pressed_key)
         {
-            bool isDigit;
+            bool isDigit = false;
+
+            if (char.IsDigit(pressed_key.KeyChar))
+            {
+                isDigit = true;
+            }
+            else
+            {
+                Console.WriteLine("\nDigit should be entered!");
+            }
+                
+            return isDigit;
+        }
+
+
+        // Converts ConsoleKeyInfo to int type
+        public int ConsoleKeyInfoToInt(ConsoleKeyInfo pressed_key)
+        {
+
+            int pressed_key_int = int.Parse(pressed_key.KeyChar.ToString());
+
+            return pressed_key_int;
+        }
+
+
+        //will check if pressed key is digit and will return pressed key in int type
+        public int PressedKey()
+        {
+            ConsoleKeyInfo pressed_key;
+            int pressed_key_int;
 
             while (true)
             {
                 pressed_key = Console.ReadKey();
 
-                if (char.IsDigit(pressed_key.KeyChar))
+                if (PressedKeyIsDigitValidation(pressed_key))
                 {
-                    isDigit = true;
+                    pressed_key_int = ConsoleKeyInfoToInt(pressed_key);
                     break;
                 }
-                else
-                {
-                    Console.WriteLine("Digit should be entered!");
-                }
-                
             }
-
-            return isDigit;
-        }
-
-
-        public int ConsoleKeyInfoToInt()
-        {
-            while (pressed_key_int != 1)
-            {
-                pressed_key = Console.ReadKey();
-
-                if (char.IsDigit(pressed_key.KeyChar))
-                {
-                    pressed_key_int = int.Parse(pressed_key.KeyChar.ToString()); // use Parse if it's a Digit
-
-                    if (pressed_key_int != 1)
-                    {
-                        Console.WriteLine("Incorrect key!");
-                    }
-                }
-                else
-                {
-                    Console.WriteLine("Incorrect key!");
-                }
-            }
-
-
-            return 0;
+            return pressed_key_int;
         }
     }
 }

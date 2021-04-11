@@ -35,7 +35,7 @@ namespace Market
         // Method. Will display available goods in the console
         public void DisplayGoods()
         {
-            Console.WriteLine("ID\tName\t\tPrice\tQuantity\n--\t----\t\t-----\t--------");
+            Console.WriteLine("\n\nID\tName\t\tPrice\tQuantity\n--\t----\t\t-----\t--------");
             foreach (Good item in goods)
             {
                 Console.WriteLine("{0}\t{1, -10}\t{2}\t{3}", item.Id, item.Name, item.Price, item.Quantity);
