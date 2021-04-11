@@ -8,7 +8,7 @@ namespace Market
 
         // Fields
         private int max_goods = 5;
-        private List<Good> total_goods;
+        private List<Good> total_goods = new List<Good>();
 
         // Method. Will add specified good into the cart
         public void AddGood(Good good)

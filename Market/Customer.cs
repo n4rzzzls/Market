@@ -24,6 +24,7 @@ namespace Market
         {
             balance = new Balance();
             cart = new Cart();
+            Console.WriteLine("\n---\nBalance in cash is {0};\nCard balance is {1}", balance.Balance_cash, balance.Balance_card);
         }
 
         // Method.
@@ -38,6 +39,13 @@ namespace Market
 
             storage.TakeGoodFromStorage(good, storage, quantity);
             cart.AddGood(good);
+
+        }
+
+
+        public void RemoveGood(int selected_good_id, int quantity)
+        {
+
         }
 
     }
