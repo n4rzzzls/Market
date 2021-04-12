@@ -10,21 +10,27 @@ namespace Market
         private int max_goods = 5;
         private List<Good> total_goods = new List<Good>();
 
-        // Method. Will add specified good into the cart
-        public void AddGood(Good good)
+        // Will add specified good into the cart
+        public void AddGood(Storage storage, int good_id)
         {
-            if (total_goods.Count < max_goods)
+            if(total_goods.Count < max_goods)
             {
-                total_goods.Add(good);
-                Console.WriteLine("{0}/{1}", total_goods.Count, max_goods);
+                foreach (var r in storage.Goods)
+                {
+                    if (r.Id == good_id)
+                    {
+                        total_goods.Add(r);
+                        Console.WriteLine("Cart volume: {0}/{1}", total_goods.Count, max_goods);
+                    }
+                }
             }
             else
             {
-                Console.WriteLine("The cart is full.");
+                Console.WriteLine("The cart is full!");
             }
         }
 
-        //Method. Will remove specified good from cart
+        // Will remove specified good from cart
         public void RemoveGood(Good good)
         {
 

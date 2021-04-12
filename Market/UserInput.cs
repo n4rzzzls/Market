@@ -36,7 +36,7 @@ namespace Market
         }
 
 
-        //will check if pressed key is digit and will return pressed key in int type
+        // Will check if pressed key is digit and will return pressed key in int type
         public int PressedKey()
         {
             ConsoleKeyInfo pressed_key;

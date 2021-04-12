@@ -32,7 +32,7 @@ namespace Market
 
         }
 
-        // Method. Will display available goods in the console
+        // Will display available goods in the console
         public void DisplayGoods()
         {
             Console.WriteLine("\n\nID\tName\t\tPrice\tQuantity\n--\t----\t\t-----\t--------");
@@ -42,18 +42,36 @@ namespace Market
             }
         }
 
-        public void TakeGoodFromStorage(Good good, Storage storage, int quantity)
+        // 
+        public void TakeGoodFromStorage(int good_id, int good_quantity)
         {
-            foreach (var r in storage.Goods)
+            foreach (var r in goods)
             {
-                if (r == good)
+                if (r.Id == good_id)
                 {
-                    if (r.Quantity >= quantity)
+                    if (r.Quantity >= good_quantity)
                     {
-                        r.Quantity -= quantity;
+                        r.Quantity -= good_quantity;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Insufficient amount in the storage!");
                     }
                 }
+            }
+        }
 
+        // 
+        public void AddGoodToStorage(int good_id, int good_quantity)
+        {
+
+            foreach (var r in goods)
+            {
+                if (r.Id == good_id)
+                {
+                    r.Quantity += good_quantity;
+
+                }
             }
         }
     }

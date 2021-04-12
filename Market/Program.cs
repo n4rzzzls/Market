@@ -9,6 +9,7 @@ namespace Market
         static void Main(string[] args)
         {
 
+            // Property
             Console.ForegroundColor = ConsoleColor.Green;
 
             // Variables
@@ -19,25 +20,30 @@ namespace Market
             int selected_good_id;
             int quantity;
 
-            
-            Console.WriteLine("1.Enter Marker.");
+
+        label_enter:
+
+            Console.WriteLine("1.Enter Marker.\n2.Exit.");
 
             while (true)
             {
+                pressed_key_int = userInput.PressedKey();
 
-                if (userInput.PressedKey() == 1)
+                if (pressed_key_int == 1)
                 {
                     break;
+                }
+                else if (pressed_key_int == 2)
+                {
+                    Environment.Exit(0);
                 }
                 else
                 {
                     Console.WriteLine("\nIncorrect key!");
                 }
-
             }
 
 
-        label_customer:
             customer = new Customer();
 
             // Some console output
@@ -46,6 +52,7 @@ namespace Market
             Console.WriteLine("\t4.Purchase added to cart goods.\n\t5.Leave market");
 
         label_here:
+
             pressed_key_int = userInput.PressedKey();
 
 
@@ -58,19 +65,19 @@ namespace Market
                     goto label_here;
 
                 case 2:
-                    Console.WriteLine("Enter ID of good: ");
+                    Console.WriteLine("\nEnter ID of good: ");
                     selected_good_id = userInput.PressedKey();
-                    Console.WriteLine("Enter quantity: ");
+                    Console.WriteLine("\nEnter quantity: ");
                     quantity = userInput.PressedKey();
-                    customer.SelectGood(selected_good_id, quantity);
+                    customer.SelectGood(storage, selected_good_id, quantity);
                     goto label_here;
 
                 case 3:
-                    Console.WriteLine("Enter ID of a good to be removed ftom the cart: ");
+                    Console.WriteLine("\nEnter ID of a good to be removed ftom the cart: ");
                     selected_good_id = userInput.PressedKey();
-                    Console.WriteLine("Enter quantity of a goods to be removed from a cart: ");
+                    Console.WriteLine("\nEnter quantity of a goods to be removed from a cart: ");
                     quantity = userInput.PressedKey();
-                    customer.RemoveGood(selected_good_id, quantity);
+                    customer.RemoveGood(storage, selected_good_id, quantity);
                     goto label_here;
 
                 case 4:
@@ -78,7 +85,7 @@ namespace Market
                     goto label_here;
 
                 case 5:
-                    goto label_customer;
+                    goto label_enter;
 
                 default:
                     Console.WriteLine("\nIncorrect key!");

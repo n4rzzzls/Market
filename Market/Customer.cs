@@ -27,23 +27,23 @@ namespace Market
             Console.WriteLine("\n---\nBalance in cash is {0};\nCard balance is {1}", balance.Balance_cash, balance.Balance_card);
         }
 
-        // Method.
+        // 
         public void Purchase()
         {
 
         }
 
-        // Method.
-        public void SelectGood(Good good, Storage storage, int quantity)
+        // 
+        public void SelectGood(Storage storage, int good_id, int good_quantity)
         {
 
-            storage.TakeGoodFromStorage(good, storage, quantity);
-            cart.AddGood(good);
+            storage.TakeGoodFromStorage(good_id, good_quantity);
+            cart.AddGood(storage, good_id);
 
         }
 
-
-        public void RemoveGood(int selected_good_id, int quantity)
+        // 
+        public void RemoveGood(Storage storage, int selected_good_id, int quantity)
         {
 
         }
