@@ -46,17 +46,15 @@ namespace Market
 
             customer = new Customer();
 
-            // Some console output
+           
             Console.WriteLine("---\nWelcome to the Market!\n\nSelect one of the options below:\n");
             Console.WriteLine("\t1.Display available goods.\n\t2.Add good to the cart.\n\t3.Remove good from the cart.");
-            Console.WriteLine("\t4.Purchase added to cart goods.\n\t5.Leave market");
+            Console.WriteLine("\t4.Display goods in the cart\n\t5.Purchase added to cart goods.\n\t6.Leave market");
 
         label_here:
 
             pressed_key_int = userInput.PressedKey();
 
-
-            // Switch/case
 
             switch (pressed_key_int)
             {
@@ -87,6 +85,9 @@ namespace Market
                 case 5:
                     goto label_enter;
 
+                case 6:
+
+                    break;
                 default:
                     Console.WriteLine("\nIncorrect key!");
                     goto label_here;

@@ -34,17 +34,20 @@ namespace Market
         }
 
         // 
-        public void SelectGood(Storage storage, int good_id, int good_quantity)
+        public void SelectGood(Storage storage, int selected_good_id, int selected_good_quantity)
         {
 
-            storage.TakeGoodFromStorage(good_id, good_quantity);
-            cart.AddGood(storage, good_id);
+            storage.TakeGoodFromStorage(selected_good_id, selected_good_quantity);
+            cart.AddGood(storage, selected_good_id, selected_good_quantity);
 
         }
 
         // 
-        public void RemoveGood(Storage storage, int selected_good_id, int quantity)
+        public void RemoveGood(Storage storage, int selected_good_id, int selected_good_quantity)
         {
+
+            storage.AddGoodToStorage(selected_good_id, selected_good_quantity);
+            cart.RemoveGood(selected_good_id, selected_good_quantity);
 
         }
 
