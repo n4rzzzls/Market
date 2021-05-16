@@ -1,2 +1,2 @@
 # Market
-Test project with implemented classes and OOP principles.
+Project with implemented OOP principles using C# language
